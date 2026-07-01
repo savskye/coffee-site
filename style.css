@@ -164,7 +164,7 @@ a {
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
     gap: 64px;
     align-items: start;
 }
@@ -217,7 +217,7 @@ a {
 
 .menu-columns {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 48px;
 }
 
@@ -251,6 +251,16 @@ a {
 .menu-list .price {
     font-size: 0.9rem;
     opacity: 0.8;
+}
+
+.about-grid > *,
+.menu-columns > *,
+.contact-grid > * {
+    min-width: 0;
+}
+
+.roast-card {
+    width: 100%;
 }
 
 .gallery {
@@ -370,6 +380,19 @@ address {
 
 @media (max-width: 640px) {
 
+    .container {
+        padding: 0 20px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .site-header {
+        position: fixed;
+        width: 100%;
+    }
+
     .nav-row {
         position: relative;
     }
@@ -392,7 +415,7 @@ address {
         max-height: 0;
         overflow: hidden;
 
-        transition: max-height 0.3s ease;
+        transition: max-height .3s ease;
         z-index: 1001;
     }
 
@@ -401,8 +424,12 @@ address {
     }
 
     .main-nav a {
-        padding: 16px 24px;
-        border-bottom: 1px solid rgba(242, 232, 216, 0.12);
+        padding: 16px 20px;
+        border-bottom: 1px solid rgba(242,232,216,.12);
+    }
+
+    .hero {
+        padding: 180px 0 100px;
     }
 
     .about-grid,
@@ -417,28 +444,18 @@ address {
         grid-row: span 1;
     }
 
-    .hero {
-        padding: 180px 0 100px;
+    .roast-card,
+    .menu-group {
+        width: 100%;
     }
 
     .hero h1,
     .about h2,
     .menu h2,
     .gallery h2,
-    .contact h2 {
-        max-width: 100%;
-    }
-
+    .contact h2,
     .hero-sub,
     .about-text p {
         max-width: 100%;
-    }
-
-    .container {
-        padding: 0 20px;
-    }
-
-    body {
-        overflow-x: hidden;
     }
 }
