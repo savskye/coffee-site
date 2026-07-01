@@ -48,8 +48,59 @@ a {
     color: #c17a4f;
 }
 
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: #f2e8d8;
+}
+
 .hero {
-    padding: 140px 0 100px;
+    position: relative;
+    overflow: hidden;
+    padding: 180px 0 140px;
+}
+
+.hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(28, 20, 16, 0.4) 0%,
+        rgba(28, 20, 16, 0.85) 100%
+    );
+}
+
+.hidden {
+    display: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
 .eyebrow {
@@ -245,4 +296,90 @@ a {
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.contact {
+    padding: 100px 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 64px;
+}
+
+address {
+    font-style: normal;
+    opacity: 0.8;
+    margin-top: 1em;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-size: 0.8rem,;
+    text-transform: uppercase;
+    color: #c17a4f;
+    margin: 1em 0 0.4em;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: #251b15;
+    border: 1px solid rgba(242, 232, 216, 0.12);
+    border-radius: 4px;
+    color: #f2e8d8;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.contact-form button {
+    margin-top: 1.5em;
+    align-self: flex-start;
+    border: none;
+    cursor: pointer;
+}
+
+.form-status {
+    font-size: 0.85rem;
+    color: #c17a4f;
+}
+
+.site-footer {
+  padding: 32px 0;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .main-nav {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: #1c1410;
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  .main-nav.open {
+    max-height: 240px;
+  }
+
+  .main-nav a {
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(242, 232, 216, 0.12);
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
 }

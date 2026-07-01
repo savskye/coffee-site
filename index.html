@@ -12,18 +12,27 @@
             <div class="container nav-row">
                 <a href="#top" class="logo">Roast & Co.</a>
 
-                <nav class="main-nav">
+                <nav class="main-nav" id="main-nav">
                     <a href="#about">About</a>
                     <a href="#menu">Menu</a>
                     <a href="#gallery">Gallery</a>
                     <a href="#contact">Visit</a>
                 </nav>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </header>
 
         <main id="top">
-            <section class="hero">
-                <div class="container">
+            <section class="hero" id="top-hero">
+                <div class="hero-media">
+                    <img src="Assets/hero-bg.png" alt="" class="hero-bg" id="hero-fallback" />
+                    <video class="hero-bg hidden" id="hero-video" muted loop playsinline></video>
+                    <div class="hero-overlay"></div>
+                </div>
+
+                <div class="container hero-content">
                     <p class="eyebrow">Single Origin - Slow Roasted - Est. 2026</p>
                     <h1>Coffee, <em>brewed</em> with intent.</h1>
                     <p class="hero-sub">
@@ -100,8 +109,41 @@
                 </div>
             </section>
 
+            <section class="contact reveal" id="contact">
+                <div class="container contact-grid">
+                    <div>
+                        <p class="eyebrow">Visit</p>
+                        <h2>Come say hello</h2>
+                        <address>
+                            123 Main Street<br />
+                            Your City, ST 00000<br />
+                            <a href="tel:+15555555555">(555) 555-5555</a>
+                        </address>
+                    </div>
+
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required />
+
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" required />
+
+                        <label for="message">Message</label>
+                        <input type="text" id="message" name="message" rows="4" required></textarea>
+
+                        <button type="submit" class="btn">Send Message</button>
+                        <p class="form-status" id="form-status"></p>
+                    </form>
+                </div>
+            </section>
+
         </main>
 
+        <footer class="site-footer">
+            <div class="container">
+                <p>&copy; <span id="year"></span> Roast & Co. All rights reserved.</p>
+            </div>
+        </footer>
 
         <script src="script.js"></script>
     </body>
