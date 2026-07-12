@@ -1,8 +1,8 @@
 :root {
-  --bg: #f5f1e8;
-  --bg-alt: #ebe4d4;
-  --cream: #2f2a22;
-  --cream-dim: #6b6355;
-  --copper: #4f6047;
-  --line: rgba(47, 42, 34, 0.12);
+  --bg: #1c1410;
+  --bg-alt: #251b15;
+  --cream: #f2e8d8;
+  --cream-dim: #c9bda9;
+  --copper: #7a9b6e;
+  --line: rgba(242, 232, 216, 0.12);
 }
