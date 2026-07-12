@@ -30,7 +30,7 @@ revealElements.forEach((el) => observer.observe(el));
 const form = document.getElementById('contact-form');
 const status = document.getElementById('form-status');
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   if (!form.checkValidity()) {
@@ -39,9 +39,24 @@ form.addEventListener('submit', (event) => {
   }
 
   const name = form.name.value.trim();
+  const data = new FormData(form);
 
-  status.textContent = `Thanks, ${name} — we'll be in touch soon.`;
-  form.reset();
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      status.textContent = `Thanks, ${name} — we'll be in touch soon.`;
+      form.reset();
+    } else {
+      status.textContent = 'Something went wrong. Please try again.';
+    }
+  } catch (error) {
+    status.textContent = 'Something went wrong. Please try again';
+  }
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
