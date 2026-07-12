@@ -3,7 +3,7 @@ const heroFallback = document.getElementById('hero-fallback');
 
 if (window.innerWidth > 760) {
     const source = document.createElement('source');
-    source.src = 'Assets/coffee_beans.mp4';
+    source.src = 'Assets/hero-compressed.mp4';
     source.type = 'video/mp4';
     heroVideo.appendChild(source);
     heroVideo.load();
